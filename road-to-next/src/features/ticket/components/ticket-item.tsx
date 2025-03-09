@@ -1,11 +1,11 @@
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import clsx from "clsx";
+import {LucideSquareArrowOutUpRight} from "lucide-react"
 import Link from "next/link";
-import {ticketPath} from "@/paths";
+import {Button} from "@/components/ui/button";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {TICKET_ICONS} from "@/features/ticket/constants";
 import {Ticket} from "@/features/ticket/types";
-import {LucideSquareArrowOutUpRight} from "lucide-react"
-import {Button} from "@/components/ui/button";
-import clsx from "clsx";
+import {ticketPath} from "@/paths";
 
 
 type TicketItemProps = {
@@ -16,6 +16,7 @@ type TicketItemProps = {
 
 const TicketItem = ({ticket, isDetail }: TicketItemProps) => {
 
+    console.log("Where am I displayed? (TicketItem)");
     const detailButton = (
     <Button variant="outline" size="icon" asChild>
         <Link href={ticketPath(ticket.id)} >

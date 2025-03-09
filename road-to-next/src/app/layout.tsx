@@ -1,8 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Separator } from "@/components/ui/separator";
 import {Header} from "@/components/header";
+import {ThemeProvider} from "@/components/theme/theme-provider";
+import { Separator } from "@/components/ui/separator";
 
 
 const geistSans = localFont({
@@ -27,23 +28,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en">
+      <html suppressHydrationWarning lang="en">
       <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <ThemeProvider>
      <Header />
-      <Separator/>
-      <main
-          className="
-            min-h-screen flex-1
-            overflow-y-auto overflow-x-hidden
-            py-24 px-8
-            bg-secondary/20
-            flex flex-col
-          "
-      >
-        {children}
-      </main>
+          <Separator/>
+          <main
+              className="
+                min-h-screen flex-1
+                overflow-y-auto overflow-x-hidden
+                py-24 px-8
+                bg-secondary/20
+                flex flex-col
+              "
+          >
+            {children}
+          </main>
+      </ThemeProvider>
       </body>
       </html>
   );

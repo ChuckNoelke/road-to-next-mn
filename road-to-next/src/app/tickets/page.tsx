@@ -8,7 +8,7 @@ import {Spinner} from "@/components/spinner";
 import {TicketList} from "@/features/ticket/components/ticket-list";
 
 
-
+export const dynamic= "force-dynamic";
 
 const TicketsPage = () => {
 

@@ -7,6 +7,7 @@ import {ThemeProvider} from "@/components/theme/theme-provider";
 import { Separator } from "@/components/ui/separator";
 
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -48,6 +49,7 @@ export default function RootLayout({
             {children}
           </main>
           <Toaster expand/>
+
       </ThemeProvider>
       </body>
       </html>

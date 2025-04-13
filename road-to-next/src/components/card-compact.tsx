@@ -9,7 +9,7 @@ type CardCompactProps ={
     description: string,
     content: ReactNode,
     className?:string,
-    footer?: string,
+    footer?: string|ReactNode,
 }
 
 const CardCompact =({title,description, content, className,footer} :CardCompactProps) => {

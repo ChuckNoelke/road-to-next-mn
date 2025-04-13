@@ -1,15 +1,23 @@
-import {Ticket} from "@prisma/client";
+import { Ticket } from "@prisma/client";
 import clsx from "clsx";
-import {LucideArrowUpRightFromSquare, LucideMoreVertical, LucidePencil, LucideTrash} from "lucide-react";
+import {
+    LucideArrowUpRightFromSquare,
+    LucideMoreVertical,
+    LucidePencil,
+} from "lucide-react";
 import Link from "next/link";
-import {useConfirmDialog} from "@/components/confirm-dialog";
 import { Button } from "@/components/ui/button";
-import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
-import {TicketMoreMenu} from "@/features/ticket/components/ticket-more-menu";
-import {ticketEditPath, ticketPath} from "@/paths";
-import {toCurrencyFromCent} from "@/utils/currency";
-import { deleteTicket } from "../actions/delete-ticket";
+import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { ticketEditPath, ticketPath } from "@/paths";
+import { toCurrencyFromCent } from "@/utils/currency";
 import { TICKET_ICONS } from "../constants";
+import { TicketMoreMenu } from "./ticket-more-menu";
 
 type TicketItemProps = {
     ticket: Ticket;
@@ -33,12 +41,16 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
         </Button>
     );
 
-
-
-    const moreMenu =(<TicketMoreMenu ticket={ticket}
-                                    trigger={ <Button variant="outline" size="icon">
-                                        <LucideMoreVertical className="h-4 w-4"/>
-        </Button>}/>);
+    const moreMenu = (
+        <TicketMoreMenu
+            ticket={ticket}
+            trigger={
+                <Button variant="outline" size="icon">
+                    <LucideMoreVertical className="h-4 w-4" />
+                </Button>
+            }
+        />
+    );
 
     return (
         <div
@@ -55,17 +67,19 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <span
-                      className={clsx("whitespace-break-spaces", {
-                          "line-clamp-3": !isDetail,
-                      })}
-                  >
-                    {ticket.content}
-                  </span>
+          <span
+              className={clsx("whitespace-break-spaces", {
+                  "line-clamp-3": !isDetail,
+              })}
+          >
+            {ticket.content}
+          </span>
                 </CardContent>
                 <CardFooter className="flex justify-between">
                     <p className="text-sm text-muted-foreground">{ticket.deadline}</p>
-                    <p className="text-sm text-muted-foreground">{toCurrencyFromCent(ticket.bounty)}</p>
+                    <p className="text-sm text-muted-foreground">
+                        {toCurrencyFromCent(ticket.bounty)}
+                    </p>
                 </CardFooter>
             </Card>
 
@@ -73,13 +87,12 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
                 {isDetail ? (
                     <>
                         {editButton}
-
                         {moreMenu}
-                    </>) : (
+                    </>
+                ) : (
                     <>
-                    {detailButton}
-                    {editButton}
-                        {moreMenu}
+                        {detailButton}
+                        {editButton}
                     </>
                 )}
             </div>

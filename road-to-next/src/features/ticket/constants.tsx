@@ -9,7 +9,7 @@ export const TICKET_ICONS = {
     DONE: <LucideCircleCheck />,
 };
 
-export const TICKET_ICONS_LABELS = {
+export const TICKET_STATUS_LABELS = {
     OPEN: "Open",
     IN_PROGRESS: "In Progress",
     DONE: "Done",

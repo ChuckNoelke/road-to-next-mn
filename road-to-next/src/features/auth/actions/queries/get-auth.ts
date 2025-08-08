@@ -1,6 +1,7 @@
+'use server';
 import {cookies} from "next/headers";
-import {lucia} from "@/lib/lucia";
 import {cache} from "react";
+import {lucia} from "@/lib/lucia";
 
 
 export  const getAuth= cache(async ()=> {

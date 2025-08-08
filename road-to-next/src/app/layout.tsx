@@ -5,6 +5,7 @@ import {Toaster} from "sonner";
 import {Header} from "@/components/header";
 import {ThemeProvider} from "@/components/theme/theme-provider";
 import { Separator } from "@/components/ui/separator";
+import { Sidebar } from "@/components/sidebar/components/sidebar";
 
 
 
@@ -36,18 +37,24 @@ export default function RootLayout({
       >
       <ThemeProvider>
      <Header />
-          <Separator/>
-          <main
-              className="
+      <div className="flex h-screen overflow-hidden border-collapse">
+        <Sidebar/>
+        <main
+            className="
+              duration-200
+                pl-[78px]
+                peer-hover:pl-[240px]
                 min-h-screen flex-1
                 overflow-y-auto overflow-x-hidden
                 py-24 px-8
                 bg-secondary/20
                 flex flex-col
-              "
-          >
-            {children}
-          </main>
+            "
+        >
+          {children}
+        </main>
+        </div>
+          
           <Toaster expand/>
 
       </ThemeProvider>

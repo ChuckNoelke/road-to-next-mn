@@ -8,6 +8,8 @@
 
   --animate-fade-from-top: fade-from-top 0.5s ease-out;
 
+  --animate-sidebar-from-left: sidebar-from-left 0.5s ease-out;
+
   --color-sidebar-ring: var(--sidebar-ring);
 
   --color-sidebar-border: var(--sidebar-border);
@@ -72,7 +74,7 @@
 
   --color-background: var(--background);
 
-  @keyframes fade-from-top {
+  @keyframes {fade-from-top {
     0% {
       opacity: 0;
       transform: translateY(-16px);
@@ -82,7 +84,17 @@
       opacity: 1;
       transform: translateY(0);
     }
+  },
+  sidebar-from-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
+}
+  
 
   --radius-sm: calc(var(--radius) - 4px);
 

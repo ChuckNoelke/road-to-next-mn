@@ -8,12 +8,15 @@ import {Placeholder} from "@/components/placeholder";
 import {Spinner} from "@/components/spinner";
 import {TicketList} from "@/features/ticket/components/ticket-list";
 import {TicketUpsertForm} from "@/features/ticket/components/ticket-upsert-form";
+import getAuthOrRedirect from "@/features/auth/actions/queries/get-auth-or-redirect";
+
 
 
 
 
 const TicketsPage = async () => {
 
+    const {user}= await getAuthOrRedirect();
 
     return (
 
@@ -27,7 +30,7 @@ const TicketsPage = async () => {
 
                 <ErrorBoundary fallback={<Placeholder label="this is an error" /> }>
                     <Suspense fallback={<Spinner/>}>
-                    <TicketList />
+                    <TicketList userId={user?.id}/>
                     </Suspense>
                 </ErrorBoundary>
             </div>

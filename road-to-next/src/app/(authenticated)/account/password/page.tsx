@@ -1,7 +1,7 @@
 import { CardCompact } from "@/components/card-compact";
 import { Heading } from "@/components/heading";
 
-import { AccountTabs } from "@/features/accounts/components/accountTabs";
+import { AccountTabs } from "@/app/(authenticated)/account/_navigation/accountTabs";
 import { PasswordChangeForm } from "@/features/auth/components/password-change-form";
 
 

@@ -2,10 +2,10 @@ import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import {Toaster} from "sonner";
-import {Header} from "@/components/header";
+import {Header} from "@/app/_navigation/header";
 import {ThemeProvider} from "@/components/theme/theme-provider";
-import { Separator } from "@/components/ui/separator";
-import { Sidebar } from "@/components/sidebar/components/sidebar";
+
+import { Sidebar } from "@/app/_navigation/sidebar/components/sidebar";
 
 
 

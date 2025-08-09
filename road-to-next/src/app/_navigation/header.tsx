@@ -9,7 +9,7 @@ import {buttonVariants} from "@/components/ui/button";
 
 import {useAuth} from "@/features/hooks/use-auth";
 import {homePath, signInPath,signUpPath} from "@/paths";
-import {AccountDropdown} from "@/components/account-dropdown";
+import {AccountDropdown} from "@/app/_navigation/account-dropdown";
 
 
 

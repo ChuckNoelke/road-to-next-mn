@@ -1,11 +1,12 @@
 
 
 import {PrismaClient} from '@prisma/client';
+import { SearchParams } from '../search-params';
 
 const prisma = new PrismaClient();
 
 
-export const getTickets= async (userId: string|undefined) =>{
+export const getTickets= async (userId: string|undefined,searchParams:SearchParams) =>{
 
     return await prisma.ticket.findMany(
         {

@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import localFont from "next/font/local";
 import {Toaster} from "sonner";
 import {Header} from "@/app/_navigation/header";
 import {ThemeProvider} from "@/components/theme/theme-provider";
-
 import { Sidebar } from "@/app/_navigation/sidebar/components/sidebar";
 
 
@@ -35,6 +35,7 @@ export default function RootLayout({
       <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <NuqsAdapter>
       <ThemeProvider>
      <Header />
       <div className="flex h-screen overflow-hidden border-collapse">
@@ -58,6 +59,7 @@ export default function RootLayout({
           <Toaster expand/>
 
       </ThemeProvider>
+      </NuqsAdapter>
       </body>
       </html>
   );

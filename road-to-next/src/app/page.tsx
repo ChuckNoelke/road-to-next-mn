@@ -1,11 +1,12 @@
 import Link from "next/link";
 import {Heading} from "@/components/heading";
-import { ticketsPath } from "@/paths";
 import { Spinner } from "@/components/spinner";
 import { TicketList } from "@/features/ticket/components/ticket-list";
 import { Suspense } from "react";
-import { SearchParams } from "@/features/ticket/search-params";
-;
+import { searchParamsCache} from "@/features/ticket/search-params";
+import {SearchParams} from "nuqs/server";
+
+
 type HomePageProps ={
     searchParams: SearchParams;
 }
@@ -15,7 +16,7 @@ const HomePage = async ({searchParams}:HomePageProps) => {
             <Heading title="All Tickets" description="All tickets at one place" />
 
             <Suspense fallback={<Spinner/>}>
-                    <TicketList searchParams={await searchParams}/>
+                    <TicketList searchParams={await searchParamsCache.parse(searchParams)}/>
                     </Suspense>
         </div>
     );

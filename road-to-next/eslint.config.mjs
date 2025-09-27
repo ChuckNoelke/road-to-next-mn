@@ -2,6 +2,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import { FlatCompat } from "@eslint/eslintrc";
+import {prettier} from "eslint-config-prettier";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -28,4 +29,9 @@ const eslintConfig = [
   },
 ];
 
-export default eslintConfig;
+
+
+export default {
+  eslintConfig,
+  prettier
+}

@@ -9,7 +9,8 @@ import {Spinner} from "@/components/spinner";
 import {TicketList} from "@/features/ticket/components/ticket-list";
 import {TicketUpsertForm} from "@/features/ticket/components/ticket-upsert-form";
 import getAuthOrRedirect from "@/features/auth/actions/queries/get-auth-or-redirect";
-import { SearchParams } from "@/features/ticket/search-params";
+import { SearchParams } from "nuqs/server";
+import { searchParamsCache} from "@/features/ticket/search-params";
 
 type TicketPageProps={
     searchParams: SearchParams;
@@ -33,7 +34,7 @@ const TicketsPage = async ({searchParams}:TicketPageProps) => {
 
                 <ErrorBoundary fallback={<Placeholder label="this is an error" /> }>
                     <Suspense fallback={<Spinner/>}>
-                    <TicketList userId={user?.id} searchParams={await searchParams}/>
+                    <TicketList userId={user?.id} searchParams={await searchParamsCache.parse(searchParams)}/>
                     </Suspense>
                 </ErrorBoundary>
             </div>
